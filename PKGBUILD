@@ -26,6 +26,8 @@ build() {
 }
 
 package() {
-	cd poco-$pkgver/cmake_build
-	make DESTDIR="$pkgdir/" install
+  cd poco-$pkgver/cmake_build
+  make DESTDIR="$pkgdir/" install
+  install -d $pkgdir/usr/share/licenses/$pkgname
+  install -m0644 ../LICENSE $pkgdir/usr/share/licenses/$pkgname
 }
